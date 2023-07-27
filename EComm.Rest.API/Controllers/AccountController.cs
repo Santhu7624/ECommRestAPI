@@ -108,20 +108,12 @@ namespace EComm.Rest.API.Controllers
         public async Task<ActionResult<AddressDto>> GetUserAddress()
         {
             //var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+            var user = await _userManager.FindUserByClaimsWithAddress(User);
+            if (User == null)
+                return BadRequest(new APIResponse(400, "User dont have address"));
 
-            try
-            {
-                var user = await _userManager.FindUserByClaimsWithAddress(User);
-                if (User == null)
-                    return BadRequest(new APIResponse(400, "User dont have address"));
+            return _mapper.Map<Address, AddressDto>(user.Address);
 
-                return _mapper.Map<Address, AddressDto>(user.Address);
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
         }
 
         [Authorize]
