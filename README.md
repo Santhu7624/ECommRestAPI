@@ -1,2 +1,2 @@
-# ECommRestAPI
-This is api developed using .net 6
+# DotNetCoreWebAPI
+ASP .Net Core web API with .net 6
