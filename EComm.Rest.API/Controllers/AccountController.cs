@@ -12,8 +12,7 @@ using System.Security.Claims;
 
 namespace EComm.Rest.API.Controllers
 {
-    //[Route("api/[controller]")]
-    //[ApiController]
+    
     public class AccountController : BaseApiController
     {
         private readonly UserManager<AppUser> _userManager;
