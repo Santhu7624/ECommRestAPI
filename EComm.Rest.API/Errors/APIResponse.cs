@@ -23,8 +23,8 @@ namespace EComm.Rest.API.Errors
             {
                 400 => "A bad request you have made",
                 401 => "Authorized, You are not",
-                404 => "Resource found, it was not",
-                500 => "Server Error",
+                404 => "Resource found, it was not found",
+                500 => "Server Internal Error",
                 _ => null
             };
         }
