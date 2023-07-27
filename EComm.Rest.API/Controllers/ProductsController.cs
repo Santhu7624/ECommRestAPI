@@ -43,12 +43,12 @@ namespace EComm.Rest.API.Controllers
         [HttpGet]
         public async Task<ActionResult<Pagination<ProductResponseModel>>> GetProducts([FromQuery]ProductSpecParams productParams)
         {
-            _logger.LogInformation("GetProducts Triggered");
+            //_logger.LogInformation("GetProducts Triggered");
             var spec = new ProductsWithTypesandBrandsSpec(productParams);
             var countSpec = new ProductWithFiltersForCountSpecification(productParams);
             var totalItems = await _productRepo.CountAsync(countSpec);
             var products = await _productRepo.ListAsync(spec);
-            _logger.LogInformation("total items count : "+ totalItems);
+            //_logger.LogInformation("total items count : "+ totalItems);
             //_logger.LogInformation("PageIndex : "+ totalItems);
             //_logger.LogInformation("total items count : "+ totalItems);
             var respData = _mapper
